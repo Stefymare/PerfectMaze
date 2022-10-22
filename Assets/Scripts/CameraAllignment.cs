@@ -19,26 +19,38 @@ public class CameraAllignment : MonoBehaviour
 
     public void CameraAllign()
     {
-        //Attribute the value for size of the maze based on user inputs
-        mazeSize.x = int.Parse(width.text);
-        mazeSize.y = int.Parse(height.text);
+            //Attribute the value for size of the maze based on user inputs
+            mazeSize.x = int.Parse(width.text);
+            mazeSize.y = int.Parse(height.text);
 
-        //Sets the camera's Y position based on the biggest value of the maze
-        if (mazeSize.y >= mazeSize.x)
+            //Sets the camera's Y position based on the biggest value of the maze
+            if (mazeSize.y >= mazeSize.x)
+            {
+                cameraY = mazeSize.y;
+            }
+            else
+            {
+                cameraY = mazeSize.x;
+            }
+
+        if (Screen.width == 921) //Set based on resolution of iPad (2048x1536 Aspect) = 921x691 based on gizmos
         {
-            cameraY = mazeSize.y;
+            //Calculate camera's X position to centralise the maze on the right side of the screen
+            cameraY = (20 * cameraY / 100) + cameraY;
+            cameraY = Mathf.RoundToInt(cameraY);
+            cameraX = -(25 * cameraY / 100);
+            cameraX = Mathf.RoundToInt(cameraX);
+
         }
         else
         {
-            cameraY = mazeSize.x;
+            //if the resolution is not the one of an iPad, we can use the initial formula
+            cameraX = -(40 * cameraY / 100);
+            cameraX = Mathf.RoundToInt(cameraX);
         }
-
-        //Calculate camera's X position to centralise the maze on the right side of the screen
-
-        cameraX = -(40 * cameraY / 100);
-        cameraX = Mathf.RoundToInt(cameraX);
        
         //Set the new camera position
         gameObject.transform.position = new Vector3(cameraX, cameraY, -0.5f);
+
     }
 }

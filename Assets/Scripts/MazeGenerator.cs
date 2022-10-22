@@ -14,8 +14,19 @@ public class MazeGenerator : MonoBehaviour
     
     public GameObject[] oldNodes; //Created to keep track of all the old nodes before destroying them 
 
-    public Text myText;
+    public Text myText; //Variable for the error message
+
+    public float delay; //Variable used to store the value of slider
+    public Slider slider;
     
+    //Function to check the status of the Slider
+    //It's called when the value of the Slider changes
+    public void DelaySlider()
+    {
+        delay = slider.value;
+    }
+
+
     //Function to call the generation of the maze from user interface
     public void callFunction()
     {
@@ -25,14 +36,19 @@ public class MazeGenerator : MonoBehaviour
         mazeSize.x = int.Parse(width.text);
         mazeSize.y = int.Parse(height.text);
 
-        //GenerateMazeInstant(mazeSize);
-        StartCoroutine(GenerateMaze(mazeSize));
+        if (delay == 1)
+        {
+            StartCoroutine(GenerateMaze(mazeSize));//Use this one for the delayed version
+        }
+        else
+        {
+            GenerateMazeInstant(mazeSize);//Use this one for the instant one
+        }
     }
     private void Start()
     {
         myText.enabled = false;
-        //GenerateMazeInstant(mazeSize); //use this one for the instant one
-        //StartCoroutine(GenerateMaze(mazeSize)); // use this one for the delayed version
+       
     }
 
     //Function search for all the existing game objects with the tag "MazeNode"
@@ -44,15 +60,15 @@ public class MazeGenerator : MonoBehaviour
 
         foreach (GameObject MazeNode in oldNodes)
         {
+            MazeNode.tag = "Untagged"; //Used this method to avoid the error of not finding the object anymore
             Destroy(MazeNode);
         }
-
     }
 
     
     public void GenerateMazeInstant(Vector2Int size)
     {
-        
+
         myText.enabled = false; //Disable the text that should pop-up when the maze is not generated
         List<MazeNode> nodes = new List<MazeNode>(); //Created the list with all nodes
 
@@ -180,7 +196,7 @@ public class MazeGenerator : MonoBehaviour
     }
 
 
-    //this script is almost the same one with the previous one
+    //This script is almost the same as the previous one
     //but the difference is that is delayed because
     //of the use of a WaitForSeconds function within a yield return
     //therefore this version of the generator is used if the user wants to visualise how the maze is generated
