@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This class has everything that is related to the generation of a new maze
+//
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] MazeNode nodePrefab;
@@ -317,7 +319,7 @@ public class MazeGenerator : MonoBehaviour
                     currentPath[currentPath.Count - 1].SetState(NodeState.Completed);
                     currentPath.RemoveAt(currentPath.Count - 1);
                 }
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.02f); //This is the element that delays the generation
             }
 
         }
