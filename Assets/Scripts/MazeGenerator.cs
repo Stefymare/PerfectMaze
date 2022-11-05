@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] MazeNode nodePrefab;
-    Vector2Int mazeSize; //Variable for the size (x and y) of the maze
+    public Vector2Int mazeSize; //Variable for the size (x and y) of the maze
 
     //Inputs from the user interface
     [SerializeField] InputField width; 
