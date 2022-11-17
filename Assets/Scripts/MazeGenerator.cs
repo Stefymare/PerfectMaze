@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //This class has everything that is related to the generation of a new maze
-//
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] MazeNode nodePrefab;
@@ -20,7 +19,7 @@ public class MazeGenerator : MonoBehaviour
 
     public float delay; //Variable used to store the value of slider
     public Slider slider;
-    
+
     //Function to check the status of the Slider
     //It's called when the value of the Slider changes
     public void DelaySlider()

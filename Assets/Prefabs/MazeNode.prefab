@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4511075954905204441}
   - component: {fileID: 4511075954905204446}
   - component: {fileID: 4511075954905204447}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: North Wall/ Pos Z
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 4511075954952976162}
   - component: {fileID: 4511075954952976163}
   - component: {fileID: 4511075954952976160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: East Wall/ Pos X
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df507923a5cf62a4d84798f54c1f0dd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -297,9 +297,9 @@ GameObject:
   - component: {fileID: 4511075955278518730}
   - component: {fileID: 4511075955278518731}
   - component: {fileID: 4511075955278518728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: South Wall/ Neg Z
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,9 +392,9 @@ GameObject:
   - component: {fileID: 4511075955434720745}
   - component: {fileID: 4511075955434720750}
   - component: {fileID: 4511075955434720751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: West Wall/ Neg X
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

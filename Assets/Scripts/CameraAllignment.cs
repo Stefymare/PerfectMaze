@@ -43,12 +43,18 @@ public class CameraAllignment : MonoBehaviour
         {
             cameraX = 0;
 
-            //Set the new camera position
-            gameObject.transform.position = new Vector3(cameraX, cameraY, -0.5f);
+            if (Screen.width == 2048) //Set based on resolution of iPad (2048x1536 Aspect)
+            {  //Calculate camera's X position to centralise the maze on the right side of the screen
+                cameraY = (20 * cameraY / 100) + cameraY;
+                cameraY = Mathf.RoundToInt(cameraY);
+            }
+
+                //Set the new camera position
+                gameObject.transform.position = new Vector3(cameraX, cameraY, -0.5f);
         }
         else
         {
-            if (Screen.width == 921) //Set based on resolution of iPad (2048x1536 Aspect) = 921x691 based on gizmos
+            if (Screen.width == 2048) //Set based on resolution of iPad (2048x1536 Aspect)
             {
                 //Calculate camera's X position to centralise the maze on the right side of the screen
                 cameraY = (20 * cameraY / 100) + cameraY;
